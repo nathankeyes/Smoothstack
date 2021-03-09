@@ -107,7 +107,11 @@ public class AsciiArt {
 		
 		AsciiArt art = new AsciiArt();
 		
+		// art.designOne(rows);
+		// art.designTwo(rows);
+		// art.designThree(rows);
 		art.designFour(rows);
+		
 		
 		return;
 	}

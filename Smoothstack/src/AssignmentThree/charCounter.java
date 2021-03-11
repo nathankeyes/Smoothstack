@@ -2,9 +2,6 @@ package AssignmentThree;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
@@ -43,7 +40,7 @@ public class charCounter {
 		return count;
 	}
 	
-	public char WhatWeLookinFor() {
+	public char WhatWeLookinFor() throws IOException {
 		String lookinForString;
 		char lookinForChar;
 		

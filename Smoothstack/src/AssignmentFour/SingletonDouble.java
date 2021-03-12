@@ -10,20 +10,22 @@ package AssignmentFour;
 public class SingletonDouble {
 
 	volatile public static SingletonDouble instance = null;
-
-	private SingletonDouble() {
-	}
-
+	
 	public static SingletonDouble getInstance() {
-
-		// do an initial if check to see if we even need to lock up with synch (first
-		// check)
-		if (instance == null) {
-			// now do the same process, with the original check being the second check
-			synchronized (instance) {
-				if (instance == null)
-					instance = new SingletonDouble();
+		
+		try {
+			// do an initial if check to see if we even need to lock up with synch (first
+			// check)
+			if (instance == null) {
+				// now do the same process, with the original check being the second check
+				synchronized (instance) {
+					if (instance == null)
+						instance = new SingletonDouble();
+				}
 			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		return instance;
@@ -32,8 +34,12 @@ public class SingletonDouble {
 	public static void main(String[] args) {
 
 		/*
-		 * // standard way (shown in Pramod's tutorial) synchronized (instance) { if (
-		 * instance == null ) instance = new SingletonDouble(); }
+		 * // standard way (shown in Pramod's tutorial) 
+		 * 
+		 * synchronized (instance) { 
+		 * 		if (instance == null ) 
+		 * 			instance = new SingletonDouble(); 
+		 * }
 		 */
 
 	}

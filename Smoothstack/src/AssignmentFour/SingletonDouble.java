@@ -24,8 +24,12 @@ public class SingletonDouble {
 				if ( instance == null )
 					instance = new SingletonDouble();
 			}
-			
 		}
+		
+		return instance;
+	}
+
+	public static void main(String[] args) {
 		
 		/*
 		// standard way (shown in Pramod's tutorial)
@@ -34,11 +38,7 @@ public class SingletonDouble {
 				instance = new SingletonDouble();
 		}
 		*/
-		return instance;
-	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 
 	}
 

@@ -23,7 +23,7 @@ public class IntToString {
 	public String intToString(List<Integer> integerList) {
 		String solution;
 		
-		// uses the lambda expression to go through and add the e's, and o's then
+		// uses the lambda expression to go through and add the e's, and o's then adds the ,
 		solution = integerList
 						.stream()
 						.map(i -> i % 2 == 0 ? "e" + i : "o" + i)

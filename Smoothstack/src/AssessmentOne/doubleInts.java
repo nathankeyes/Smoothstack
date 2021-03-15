@@ -14,13 +14,22 @@ import java.util.List;
 public class doubleInts {
 	public List<Integer> doubling(List<Integer> list) {
 		
-		if (list == null) {
-			System.out.println("Empty List");
-			return null;
-		}
+		try {
+			if (list == null) {
+				System.out.println("Empty List");
+				return null;
+			}
 		
-		for ( int i = 0; i < list.size(); i++ )
-			list.set(i, (list.get(i) * 2));
+			for ( int i = 0; i < list.size(); i++ )
+				list.set(i, (list.get(i) * 2));
+		}
+		catch (NullPointerException e) {
+			System.out.println("null input invalid, try again");
+			e.printStackTrace();
+		}
+		catch ( Exception e ) {
+			e.printStackTrace();
+		}
 		
 		return list;
 	}

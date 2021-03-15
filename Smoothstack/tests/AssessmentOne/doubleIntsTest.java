@@ -58,13 +58,13 @@ public class doubleIntsTest {
 		assertEquals(finalList2, DI.doubling(intList2));	
 	}
 	
-	@Test
+	@Test (expected = NullPointerException.class)
 	// add null
 	public void doublingResults3() {
 		
-		intList2.add(null);
+		intList3.add(null);
 		
-		finalList2.add(null);
+		finalList3.add(null);
 
 		
 		assertEquals(finalList3, DI.doubling(intList3));	

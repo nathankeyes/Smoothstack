@@ -13,9 +13,18 @@ import java.util.List;
 public class removeX {
 	public List<String> noX(List<String> list) {
 		
+		try {
 		//iterates through list, grabbing current index and removing x and replacing with nothing
 		for ( int i = 0; i < list.size(); i++ )
 			list.set(i, ((list.get(i)).replace("x", "")));
+		}
+		catch ( NullPointerException e ) {
+			System.out.println("null input invalid, try again");
+			e.printStackTrace();
+		}
+		catch ( Exception e ) {
+			e.printStackTrace();
+		}
 		
 		return list;
 	}

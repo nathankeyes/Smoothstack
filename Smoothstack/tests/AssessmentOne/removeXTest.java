@@ -57,13 +57,27 @@ public class removeXTest {
 	@Test
 	// only an x
 	public void rxResults3() {
-		
+	
 		intList3.add("x");
-		
-		finalList3.add("");
 
+		finalList3.add("");
 		
 		assertEquals(finalList3, rx.noX(intList3));	
+	}
+	
+	@Test (expected = NullPointerException.class)
+	// add null
+	public void rxResults4() {
+		List<String> intList   = new ArrayList<>();
+		List<String> finalList = new ArrayList<>();
+	
+		intList.add(null);
+
+		finalList.add(null);
+		
+		// supposed to just call funciton with expected and it catches NPE
+		// not catching NullPointerException, but is returning NullPointerException from function call, not sure,
+		//rx.noX(intList);
 	}
 
 }

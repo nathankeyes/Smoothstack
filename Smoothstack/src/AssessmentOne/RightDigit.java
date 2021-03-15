@@ -22,6 +22,9 @@ public class RightDigit {
 			System.out.println("Input is null, try again");
 			e.printStackTrace();
 		}
+		catch ( Exception e ) {
+			e.printStackTrace();
+		}
 
 			return list;
 	}

@@ -17,15 +17,45 @@ import org.junit.Test;
 public class LambdaOpsTest {
 	
 	LambdaOps LO = new LambdaOps();
+	//PerformOperation returnValue = null;
+	
 	
 	@Test
 	// base test (use two variables for addition)
-	public void LOResults1() {
-		int index = 0;
-		Integer target = 10;
-		int[] intArr =  new int[] {2, 4, 8};
-		
-		assertEquals(true, LO.isOdd());	
+	public void LOResultsOdd1() {
+		assertEquals(false, LO.poToBoolean(LO.isOdd(), 4));	
 	}
+	@Test
+	// base test (use two variables for addition)
+	public void LOResultsOdd2() {
+		assertEquals(true, LO.poToBoolean(LO.isOdd(), 3));	
+	}
+	
+	@Test
+	// base test (use two variables for addition)
+	public void LOResultsPrime1() {
+		assertEquals(true, LO.poToBoolean(LO.isPrime(), 5));	
+	}
+	
+	@Test
+	// base test (use two variables for addition)
+	public void LOResultsPrime2() {
+		assertEquals(false, LO.poToBoolean(LO.isPrime(), 12));	
+	}
+	
+	@Test
+	// base test (use two variables for addition)
+	public void LOResultsPalindrome1() {
+		assertEquals(true, LO.poToBoolean(LO.isPalindrome(), 898));	
+	}
+	
+	@Test
+	// base test (use two variables for addition)
+	public void LOResultsPalindrome2() {
+		assertEquals(false, LO.poToBoolean(LO.isPalindrome(), 12));	
+	}
+	
+
+
 
 }

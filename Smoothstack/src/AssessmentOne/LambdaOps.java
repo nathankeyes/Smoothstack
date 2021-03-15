@@ -4,9 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-
-
-
 /**
  * @author      Nathan Keyes
  * @DateCreated 3/14/21
@@ -42,7 +39,7 @@ public class LambdaOps {
 	 *  
 	 */
 	public PerformOperation isOdd() {
-		return (x) -> (x % 2 == 0) ? true : false;
+		return (x) -> !(x % 2 == 0) ? true : false;
 	}
 	
 	
@@ -142,7 +139,7 @@ public class LambdaOps {
 			for (int j = 0; j < operationCount; j++) {
 				if ( valuesArr[j][0] == 1 ) {
 					returnValue = obj.isOdd();
-					finalAnswer = (obj.poToBoolean(returnValue, valuesArr[j][1])) ? "EVEN" : "ODD";
+					finalAnswer = (obj.poToBoolean(returnValue, valuesArr[j][1])) ? "ODD" : "EVEN";
 				}
 				else if ( valuesArr[j][0] == 2 ) {
 					returnValue = obj.isPrime();
@@ -150,7 +147,7 @@ public class LambdaOps {
 				}
 				else if ( valuesArr[j][0] == 3 ) {
 					returnValue = obj.isPalindrome();
-					finalAnswer = (obj.poToBoolean(returnValue, valuesArr[j][1])) ? "NOT PALINDROME" : "PALINDROME";
+					finalAnswer = (obj.poToBoolean(returnValue, valuesArr[j][1])) ? "PALINDROME" : "NOT PALINDROME";
 				}
 				else {
 					System.out.println("Invalide Operation Code");

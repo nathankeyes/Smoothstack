@@ -8,7 +8,6 @@ package AssessmentOne;
  * @Documentation 
  * 		BigDecimal: https://docs.oracle.com/javase/8/docs/api/java/math/BigDecimal.html
  * 		DriverManager: https://docs.oracle.com/javase/8/docs/api/java/sql/DriverManager.html
- * 
  */
 
 import java.math.BigDecimal;

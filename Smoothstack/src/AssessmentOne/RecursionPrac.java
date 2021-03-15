@@ -17,27 +17,32 @@ public class RecursionPrac {
 	 * @notes:  choose a group of some of the ints from the array that sum to given target
 	 * 			- constraint: if numbers adjacent in list are the same, they must all or none be selected
 	 */
-	public boolean groupSumClump(int index, int[] intArr, Integer target) {	
-		// initial/final check to see if we got our target to 0
-		if ( index >= intArr.length )
-			return (target == 0);
-		
-		// counter variable to keep track how many values ahead you are looking
-		int i = 1;
-		
-		// first checks if we are still looking inside the array
-		// then each time checks if the next value is the same as the curr value
-		while( (index+i) < intArr.length && intArr[index] == intArr[index+i] )
-			i++;
-		
-		// catch to check if we found the answer
-		// first loop recursively calls subtracting the target to see if we find
-		if ( groupSumClump(index+i, intArr, target-(i*intArr[index])) )
-			return true;
-		
-		// this loop is almost like an iterator, continuing on the check but ignroing each additional index
-		if ( groupSumClump(index+i, intArr, target) )
-			return true;
+	public boolean groupSumClump(int index, int[] intArr, Integer target) {
+		try {
+			// initial/final check to see if we got our target to 0
+			if ( index >= intArr.length )
+				return (target == 0);
+			
+			// counter variable to keep track how many values ahead you are looking
+			int i = 1;
+			
+			// first checks if we are still looking inside the array
+			// then each time checks if the next value is the same as the curr value
+			while( (index+i) < intArr.length && intArr[index] == intArr[index+i] )
+				i++;
+			
+			// catch to check if we found the answer
+			// first loop recursively calls subtracting the target to see if we find
+			if ( groupSumClump(index+i, intArr, target-(i*intArr[index])) )
+				return true;
+			
+			// this loop is almost like an iterator, continuing on the check but ignroing each additional index
+			if ( groupSumClump(index+i, intArr, target) )
+				return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return false;
 	}

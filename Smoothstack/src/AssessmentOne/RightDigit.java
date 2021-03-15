@@ -14,18 +14,22 @@ import java.util.List;
 public class RightDigit {
 	
 	public List<Integer> rightDigit(List<Integer> list) {
-		
-		for ( int i = 0; i < list.size(); i++ )
-			//tempList.add(list.get(i) % 10);]
-			list.set(i, (list.get(i)) % 10);
-		
-		return list;
+		try {
+			for ( int i = 0; i < list.size(); i++ )
+				list.set(i, (list.get(i)) % 10);
+		}
+		catch (NullPointerException e) {
+			System.out.println("Input is null, try again");
+			e.printStackTrace();
+		}
+
+			return list;
 	}
 
 	public static void main(String[] args) {
-		//List<Integer> intList   = new ArrayList<>();
-		//List<Integer> finalList = new ArrayList<>();
-		//RightDigit RD = new RightDigit();
+		List<Integer> intList   = new ArrayList<>();
+		List<Integer> finalList = new ArrayList<>();
+		RightDigit RD = new RightDigit();
 		
 		///** Test group 1
 		//intList.add(1);
@@ -46,11 +50,16 @@ public class RightDigit {
 		intList.add(0);
 		*/
 		
+		// Test group 4 -  null
+		intList.add(null);
+	
 		
-		//finalList = RD.rightDigit(intList);
 		
-		//for ( Integer x : finalList )
-			//System.out.println(x);
+		
+		finalList = RD.rightDigit(intList);
+		
+		for ( Integer x : finalList )
+			System.out.println(x);
 	}
 
 }

@@ -71,7 +71,7 @@ public class RightDigitTest {
 	}
 	
 	@Test
-	// zero handled the same
+	// add null
 	public void rdResults4() {
 		intList3.add(null);
 		

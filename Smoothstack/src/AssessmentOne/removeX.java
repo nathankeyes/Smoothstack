@@ -30,6 +30,7 @@ public class removeX {
 		intList.add("bb");
 		intList.add("cx");
 		*/
+		
 		/** Test Group 2
 		intList.add("xxax");
 		intList.add("xbxbx");

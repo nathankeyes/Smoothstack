@@ -23,15 +23,15 @@ public class RightDigit {
 	}
 
 	public static void main(String[] args) {
-		List<Integer> intList   = new ArrayList<>();
-		List<Integer> finalList = new ArrayList<>();
-		RightDigit RD = new RightDigit();
+		//List<Integer> intList   = new ArrayList<>();
+		//List<Integer> finalList = new ArrayList<>();
+		//RightDigit RD = new RightDigit();
 		
-		/** Test group 1
-		intList.add(1);
-		intList.add(22);
-		intList.add(93);
-		*/
+		///** Test group 1
+		//intList.add(1);
+		//intList.add(22);
+		//intList.add(93);
+		//*/
 		
 		/** Test group 2
 		intList.add(16);
@@ -41,16 +41,16 @@ public class RightDigit {
 		intList.add(1);
 		*/
 		
-		///** Test group 3
+		/** Test group 3
 		intList.add(10);
 		intList.add(0);
-		//*/
+		*/
 		
 		
-		finalList = RD.rightDigit(intList);
+		//finalList = RD.rightDigit(intList);
 		
-		for ( Integer x : finalList )
-			System.out.println(x);
+		//for ( Integer x : finalList )
+			//System.out.println(x);
 	}
 
 }

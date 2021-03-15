@@ -1,10 +1,9 @@
 package AssessmentOne;
 
-import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
-import java.util.stream.Collectors;
+
 
 
 
@@ -25,6 +24,16 @@ interface PerformOperation {
 }
 
 public class LambdaOps {
+	
+	/**
+	 * @args: 	needs PerformOperation obj to acesss interface, and integer
+	 * @return: boolean
+	 * @notes:  need this to convert from type PerformOperation to boolean for the check at the end
+	 */
+	public boolean poToBoolean(PerformOperation po, int num) {
+		return po.operation(num);
+	}
+	
 	/**
 	 * @args:
 	 * @return: returns true when it IS a prime
@@ -75,11 +84,13 @@ public class LambdaOps {
 	public PerformOperation isPalindrome() {
 		
 		return (x) -> {
-			Integer remain = 0, reverse = 0;
-			while( x != 0 ) {
-				remain = x % 10;
+			int remain = 0, reverse = 0, tempToChange = x;
+			
+			//keep taking %10 amounts off the input number and performing operation
+			while( tempToChange != 0 ) {
+				remain = tempToChange % 10;
 				reverse = (reverse * 10) + remain;
-				x /= 10;
+				tempToChange /= 10;
 			}
 			if (x == reverse)
 				return true;
@@ -97,44 +108,61 @@ public class LambdaOps {
 	 */
 	public static void main(String[] args) throws IOException {	
 		LambdaOps obj = new LambdaOps();
-
-		
-		// methods return a return value, need to convert it to boolean
+		int operationCount = 0;
+		int i = 0;								//quick value separate the first operation
 		PerformOperation returnValue = null;
-		boolean result = false;
+		String finalAnswer = null;
 		
 		
-		// ----- reading in input -----
-		BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
 		
-		Integer inputInt = Integer.parseInt(buffer.readLine());
-		
-		/*
-		// ----- Results -----
-		if ( num1 == 1 ) {
-			result = returnValue.operation(numToCheck);
+
+		// ---------- reading in input ----------
+		try (  Scanner scan = new Scanner(new File("C:\\Users\\natha\\git\\Smoothstack\\Smoothstack\\src\\AssessmentOne\\InputStub.txt"))) {
+			if ( i == 0 ) {
+				operationCount = scan.nextInt();
+				i++;
+			}
 			
-			if ( obj.isOdd() )
-				System.out.println("ODD");
-			else
-				System.out.println("EVEN");	
+			int[][] valuesArr = new int[operationCount][2];
+			
+			int index1 = 0;
+			
+			// while we are in the number operations and while there is a line to read in
+			while ( index1 < operationCount && scan.hasNextLine() ) {
+				valuesArr[index1][0] = scan.nextInt();
+				valuesArr[index1][1] = scan.nextInt();
+				index1++;
+			}
+			
+			//prints contents of array
+			//for (int j = 0; j < operationCount; j++)
+				//System.out.println(valuesArr[j][0] + " " + valuesArr[j][1]);
+			
+			
+			for (int j = 0; j < operationCount; j++) {
+				if ( valuesArr[j][0] == 1 ) {
+					returnValue = obj.isOdd();
+					finalAnswer = (obj.poToBoolean(returnValue, valuesArr[j][1])) ? "EVEN" : "ODD";
+				}
+				else if ( valuesArr[j][0] == 2 ) {
+					returnValue = obj.isPrime();
+					finalAnswer = (obj.poToBoolean(returnValue, valuesArr[j][1])) ? "PRIME" : "COMPOSITE";
+				}
+				else if ( valuesArr[j][0] == 3 ) {
+					returnValue = obj.isPalindrome();
+					finalAnswer = (obj.poToBoolean(returnValue, valuesArr[j][1])) ? "NOT PALINDROME" : "PALINDROME";
+				}
+				else {
+					System.out.println("Invalide Operation Code");
+				}
+				
+				System.out.println(finalAnswer);
+			}
+			
 		}
-		else if ( num1 == 2) {
-			if ( obj.isPrime() )
-				System.out.println("PRIME");
-			else
-				System.out.println("COMPOSITE");	
-		}
-		else if ( num1 == 3 ) {
-			if ( isPalindrome(num) )
-				System.out.println("PALINDROME");
-			else
-				System.out.println("NOT PALINDROME");		
-		}
-		else {
-			System.out.println("Something went wrong");
-		}
-		*/
+		catch (Exception e) {
+			e.printStackTrace();
+		}		
 
 	}
 

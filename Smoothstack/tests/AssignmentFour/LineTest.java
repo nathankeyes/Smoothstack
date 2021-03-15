@@ -4,21 +4,15 @@ package AssignmentFour;
  * @author      Nathan Keyes
  * @DateCreated 3/12/21
  * @LastEdited  3/12/21
- * @Description JUnit test for Line
- * 				NOT WORKING
- * 				keep receiving ClassNotFoundException waiting to hear back from Pramod
+ * @Description JUnit test for Line.java
+ * 	
+ * 			
  */
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-/**
- * @author      Nathan Keyes
- * @DateCreated 3/12/21
- * @LastEdited  3/12/21
- * @Description JUnit test for Line.java
- */
 
 public class LineTest {
 	private Line line = new Line(1,4,2,5);

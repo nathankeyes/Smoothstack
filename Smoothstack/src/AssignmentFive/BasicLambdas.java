@@ -19,6 +19,8 @@ import java.util.List;
 
 public class BasicLambdas {
 	
+
+	
 	private static int helperMethod(String s1) {
 		
 		//System.out.println(((s1.charAt(0) == 'E' || (s1.charAt(0) == 'e')) ? 0 : 1));

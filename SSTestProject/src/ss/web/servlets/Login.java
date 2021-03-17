@@ -3,7 +3,6 @@ package ss.web.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,48 +10,51 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MyServlet
+ * Servlet implementation class Login
  */
-@WebServlet("/welcome")
-public class MyServlet extends HttpServlet {
+@WebServlet("/Login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-	// basically a constructor
-    public MyServlet() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/** 
+	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		response.setContentType("text/html");	
 		PrintWriter pw = response.getWriter();
 		
-		// he copied his home.html file into a string and put it into print("")
-		pw.print("<html><head><title>Success</title></head></html>");
+		//StringBuffer desiredURL = new StringBuffer("http://localhost:8080/SSTestProject/Login?user=user&pass=pass");
 		
-		// RequestDispatcher rd = request.getRequestDispatcher("/path to file");
-		// rd.forward(request, response);
+		//pw.print(request.getRequestURL());
+	
+		String desiredURL = "http://localhost:8080/SSTestProject/Login?user=user&pass=pass";
+		String url = request.getRequestURL()+"?"+request.getQueryString();
 		
-		// auto generated
-		// response.getWriter().append("Served at: ").append(request.getContextPath());
-
-
+		if ( desiredURL.equals(url) ) {
+			pw.print("<html><head><title>Success</title></head></html>");
+			pw.print("Success");
+		}
+		else {
+			pw.print("<html><head><title>Incorrect Username or Password</title></head></html>");
+			pw.print("Incorrect Username or Password");
+		}
+			
 	}
 
-	/** 
-	 *  @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	  */
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		// doGet(request, response);
-
+		doGet(request, response);
 	}
 
 }

@@ -52,7 +52,7 @@ public class RecursionPracTest {
 		Integer target = 3;
 		int[] intArr4 = new int[] {1, 2, 2, 2, 5, 2};
 		
-		assertEquals(false, RPobj.groupSumClump(index, intArr4, target));	
+		assertEquals(true, RPobj.groupSumClump(index, intArr4, target));	
 	}
 	
 	@Test

@@ -10,6 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * @author      Nathan Keyes
+ * @DateCreated 3/17/21
+ * @LastEdited  3/17/21
+ * @Description SUPER BASIC LOGIN FUNCTION,
+ * 				USERNAME: user
+ * 				PASSWORD: pass
+ */
+
+/**
  * Servlet implementation class Login
  */
 @WebServlet("/Login")
@@ -30,11 +39,7 @@ public class Login extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");	
 		PrintWriter pw = response.getWriter();
-		
-		//StringBuffer desiredURL = new StringBuffer("http://localhost:8080/SSTestProject/Login?user=user&pass=pass");
-		
-		//pw.print(request.getRequestURL());
-	
+
 		String desiredURL = "http://localhost:8080/SSTestProject/Login?user=user&pass=pass";
 		String url = request.getRequestURL()+"?"+request.getQueryString();
 		

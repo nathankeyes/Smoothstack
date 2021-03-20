@@ -1,6 +1,11 @@
 package utopia.jdbc;
 
-//import com.sun.jdi.connect.spi.Connection;
+/**
+ * @author      Nathan Keyes
+ * @DateCreated 3/20/21
+ * @LastEdited  3/20/21
+ * @Description Assessment 2 example code from Pramod
+ */
 
 import java.sql.Connection;
 import java.sql.Statement;

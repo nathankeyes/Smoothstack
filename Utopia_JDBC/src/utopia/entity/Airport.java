@@ -6,7 +6,7 @@ import java.util.List;
  * @author      Nathan Keyes
  * @DateCreated 3/20/21
  * @LastEdited  3/20/21
- * @Description Assessment 2 example code from Pramod
+ * @Description Assessment 2 example code from Pramod, airport table
  */
 
 public class Airport {

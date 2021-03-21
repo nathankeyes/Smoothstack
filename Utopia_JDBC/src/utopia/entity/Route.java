@@ -1,10 +1,12 @@
 package utopia.entity;
 
+import java.util.List;
+
 /**
  * @author      Nathan Keyes
  * @DateCreated 3/20/21
  * @LastEdited  3/20/21
- * @Description Assessment 2 example code from Pramod
+ * @Description Assessment 2 example code from Pramod, route table
  */
 
 public class Route {
@@ -15,24 +17,39 @@ public class Route {
 	private Airport originAirport;
 	private Airport destAirport;
 	
+	private List<Flight> routeFlights;
+	
 	// -------------------- Get/Set --------------------
+	// routeID
 	public Integer getRouteID() {
 		return routeID;
 	}
 	public void setRouteID(Integer routeID) {
 		this.routeID = routeID;
 	}
+	
+	// originAirport
 	public Airport getOriginAirport() {
 		return originAirport;
 	}
 	public void setOriginAirport(Airport originAirport) {
 		this.originAirport = originAirport;
 	}
+	
+	// destAirport
 	public Airport getDestAirport() {
 		return destAirport;
 	}
 	public void setDestAirport(Airport destAirport) {
 		this.destAirport = destAirport;
+	}
+	
+	// flights
+	public List<Flight> getRouteFlights() {
+		return routeFlights;
+	}
+	public void setRouteFlights(List<Flight> routeFlights) {
+		this.routeFlights = routeFlights;
 	}
 	
 	// -------------------- HashCode on Primary Key --------------------
@@ -43,6 +60,7 @@ public class Route {
 		result = prime * result + ((routeID == null) ? 0 : routeID.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

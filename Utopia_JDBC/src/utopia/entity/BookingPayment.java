@@ -9,16 +9,16 @@ package utopia.entity;
 
 public class BookingPayment {
 	
-	private Integer bookingPaymentID;				// not primary key, booking_id
+	private Booking bookingPaymentID;				// not primary key, booking_id
 	private String	stripID;						// stripe_id
 	private Boolean	refunded;						// refunded
 	
 	// -------------------- Get/Set --------------------
 	// bookingPaymentID
-	public Integer getBookingPaymentID() {
+	public Booking getBookingPaymentID() {
 		return bookingPaymentID;
 	}
-	public void setBookingPaymentID(Integer bookingPaymentID) {
+	public void setBookingPaymentID(Booking bookingPaymentID) {
 		this.bookingPaymentID = bookingPaymentID;
 	}
 	

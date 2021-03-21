@@ -10,23 +10,23 @@ package utopia.entity;
 
 public class FlightBookings {
 
-	private Integer flightBookingsFlightID;		// one to many relationship with flight, flight_id to id
-	private Integer flightBookingsBookings;		// one to many relationship with booking, booking_id to id 
+	private Flight flightBookingsFlightID;		// one to many relationship with flight, flight_id to id
+	private Booking flightBookingsBookings;		// one to many relationship with booking, booking_id to id 
 
 	// -------------------- Get/Set --------------------
 	// FlightBookingsFlightID
-	public Integer getFlightBookingsFlightID() {
+	public Flight getFlightBookingsFlightID() {
 		return flightBookingsFlightID;
 	}
-	public void setFlightBookingsFlightID(Integer flightBookingsFlightID) {
+	public void setFlightBookingsFlightID(Flight flightBookingsFlightID) {
 		this.flightBookingsFlightID = flightBookingsFlightID;
 	}
 	
 	// flightBookingsBookings
-	public Integer getFlightBookingsBookings() {
+	public Booking getFlightBookingsBookings() {
 		return flightBookingsBookings;
 	}
-	public void setFlightBookingsBookings(Integer flightBookingsBookings) {
+	public void setFlightBookingsBookings(Booking flightBookingsBookings) {
 		this.flightBookingsBookings = flightBookingsBookings;
 	}
 }

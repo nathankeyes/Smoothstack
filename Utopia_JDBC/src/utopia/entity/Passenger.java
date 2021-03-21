@@ -13,7 +13,7 @@ public class Passenger {
 	
 	private Integer passengerID;				// Primary Key, id
 	
-	private Integer passengerBookingID;			// booking_id
+	private Booking passengerBookingID;			// booking_id
 	private String 	passengerGivenName;			// given_name
 	private String  passengerFamilyName;		// family_name
 	private Date    passengerDOB;				// dob
@@ -21,42 +21,55 @@ public class Passenger {
 	private String	passengerAddress;			// address
 	
 	// -------------------- Get/Set --------------------
+	// passengerID
 	public Integer getPassengerID() {
 		return passengerID;
 	}
 	public void setPassengerID(Integer passengerID) {
 		this.passengerID = passengerID;
 	}
-	public Integer getPassengerBookingID() {
+	
+	// BookingID
+	public Booking getPassengerBookingID() {
 		return passengerBookingID;
 	}
-	public void setPassengerBookingID(Integer passengerBookingID) {
+	public void setPassengerBookingID(Booking passengerBookingID) {
 		this.passengerBookingID = passengerBookingID;
 	}
+	
+	// GivenName
 	public String getPassengerGivenName() {
 		return passengerGivenName;
 	}
 	public void setPassengerGivenName(String passengerGivenName) {
 		this.passengerGivenName = passengerGivenName;
 	}
+	
+	// FamilyName
 	public String getPassengerFamilyName() {
 		return passengerFamilyName;
 	}
 	public void setPassengerFamilyName(String passengerFamilyName) {
 		this.passengerFamilyName = passengerFamilyName;
 	}
+	
+	// DOB
 	public Date getPassengerDOB() {
 		return passengerDOB;
 	}
 	public void setPassengerDOB(Date passengerDOB) {
 		this.passengerDOB = passengerDOB;
 	}
+	
+	// Gender
 	public String getPassengerGender() {
 		return passengerGender;
 	}
 	public void setPassengerGender(String passengerGender) {
 		this.passengerGender = passengerGender;
 	}
+	
+	// Address
 	public String getPassengerAddress() {
 		return passengerAddress;
 	}

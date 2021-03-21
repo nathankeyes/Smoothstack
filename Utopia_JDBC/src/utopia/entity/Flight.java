@@ -1,6 +1,6 @@
 package utopia.entity;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -14,8 +14,8 @@ public class Flight {
 	
 	private Integer flightID;		    			// Primary Key, id
 	
-	private Integer flightRouteID;					// Foreign Key on routeID, route_id
-	private Integer flightAirplaneID;				// Foreign Key on airplaneID, airplane_id
+	private Route    flightRouteID;					// Foreign Key on routeID, route_id
+	private Airplane flightAirplaneID;				// Foreign Key on airplaneID, airplane_id
 	
 	private Timestamp flightDepartureTime;			// departure_time, Timestamp(year, month, date, hour, minute, second, nano)
 	private Integer   flightReservedSeats;			// reserved_seats
@@ -33,18 +33,18 @@ public class Flight {
 	}
 	
 	// flightRouteID
-	public Integer getFlightRouteID() {
+	public Route getFlightRouteID() {
 		return flightRouteID;
 	}
-	public void setFlightRouteID(Integer flightRouteID) {
+	public void setFlightRouteID(Route flightRouteID) {
 		this.flightRouteID = flightRouteID;
 	}
 	
 	// flightAirplaneID
-	public Integer getFlightAirplaneID() {
+	public Airplane getFlightAirplaneID() {
 		return flightAirplaneID;
 	}
-	public void setFlightAirplaneID(Integer flightAirplaneID) {
+	public void setFlightAirplaneID(Airplane flightAirplaneID) {
 		this.flightAirplaneID = flightAirplaneID;
 	}
 	

@@ -15,7 +15,7 @@ public class AirplaneType {
 	private Integer maxCapacity;			//max_capacity
 	
 	// since it has a many to one relationship with airplane, it can have a list of airplaneTypes
-	private List<AirplaneType> airplaneTypes;
+	private List<Airplane> airplaneTypes;
 	
 	
 	// -------------------- Get/Set --------------------
@@ -36,10 +36,10 @@ public class AirplaneType {
 	}
 	
 	// airplaneTypes
-	public List<AirplaneType> getAirplaneTypes() {
+	public List<Airplane> getAirplaneTypes() {
 		return airplaneTypes;
 	}
-	public void setAirplaneTypes(List<AirplaneType> airplaneTypes) {
+	public void setAirplaneTypes(List<Airplane> airplaneTypes) {
 		this.airplaneTypes = airplaneTypes;
 	}
 

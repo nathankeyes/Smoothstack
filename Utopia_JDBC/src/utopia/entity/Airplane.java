@@ -13,7 +13,7 @@ public class Airplane {
 	
 	private Integer airplaneID;		    // Primary Key, id
 	
-	private Integer airplaneTypeID;		// Foreign Key to airplane_type
+	private AirplaneType airplaneTypeID;		// Foreign Key to airplane_type
 	
 	private List<Flight> airplaneFlights;		// many to one relationship with flight, airpalneID to airplane_id
 	
@@ -28,10 +28,10 @@ public class Airplane {
 	}
 
 	// airplaneTypeID
-	public Integer getAirplaneTypeID() {
+	public AirplaneType getAirplaneTypeID() {
 		return airplaneTypeID;
 	}
-	public void setAirplaneTypeID(Integer airplaneTypeID) {
+	public void setAirplaneTypeID(AirplaneType airplaneTypeID) {
 		this.airplaneTypeID = airplaneTypeID;
 	}
 	

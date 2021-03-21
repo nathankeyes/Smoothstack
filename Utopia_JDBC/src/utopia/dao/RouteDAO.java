@@ -3,8 +3,10 @@ package utopia.dao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+import utopia.entity.Airport;
 import utopia.entity.Route;
 
 /**
@@ -22,7 +24,25 @@ public class RouteDAO extends BaseDAO<Route>{
 
 	@Override
 	public List<Route> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
-		return null;
+		List<Route> routes = new ArrayList<>();
+		Route r = new Route();
+		Airport a = new Airport();
+		
+		while (rs.next()) {
+			r.setRouteID(rs.getInt("id"));
+			
+			a.setAirportCode(rs.getString("origin_id"));
+			r.setOriginAirport(a);
+			
+			a.setAirportCode(rs.getString("destination_id"));
+			r.setDestAirport(a);
+		
+			
+			routes.add(r);
+		}
+		
+		a.setRoutes(routes);				// not sure if i need this, but whatevs
+		return routes;
 	}
 
 }

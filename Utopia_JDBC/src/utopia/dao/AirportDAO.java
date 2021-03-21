@@ -4,7 +4,6 @@ package utopia.dao;
 import utopia.entity.Airport;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -46,7 +45,6 @@ public class AirportDAO extends BaseDAO<Airport>{
 	}
 	
 	public List<Airport> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
-		
 		List<Airport> airports = new ArrayList<>();
 		
 		while (rs.next()) {

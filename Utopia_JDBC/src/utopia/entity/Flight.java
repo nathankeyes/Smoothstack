@@ -12,14 +12,14 @@ import java.util.List;
 
 public class Flight {
 	
-	private Integer flightID;		    			// Primary Key, id
+	private Integer flightID;		    				// Primary Key, id
 	
-	private Route    flightRouteID;					// Foreign Key on routeID, route_id
-	private Airplane flightAirplaneID;				// Foreign Key on airplaneID, airplane_id
+	private Route    flightRouteID;						// Foreign Key on routeID, route_id
+	private Airplane flightAirplaneID;					// Foreign Key on airplaneID, airplane_id
 	
-	private Timestamp flightDepartureTime;			// departure_time, Timestamp(year, month, date, hour, minute, second, nano)
-	private Integer   flightReservedSeats;			// reserved_seats
-	private Float     flightSeatPrice;				// seat_price
+	private Timestamp flightDepartureTime;				// departure_time, Timestamp(year, month, date, hour, minute, second, nano)
+	private Integer   flightReservedSeats;				// reserved_seats
+	private Float     flightSeatPrice;					// seat_price
 	
 	private List<FlightBookings> flightFlightBookings;	// many to one relationship with flight_bookings, id to flight_id
 	

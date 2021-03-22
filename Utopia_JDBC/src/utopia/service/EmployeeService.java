@@ -2,9 +2,12 @@ package utopia.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import utopia.dao.AirportDAO;
 import utopia.dao.RouteDAO;
+import utopia.entity.Airport;
 
 /**
  * @author      Nathan Keyes
@@ -24,14 +27,25 @@ public class EmployeeService {
 		// transaction handling
 		try {
 			conn = util.getConnection();
-			AirportDAO adao = new AirportDAO(conn);
-			RouteDAO rdao = new RouteDAO(conn);
-			// flightDAO pass same conn
-			// airplane dao pass same conn
+			
+			AirportDAO aDAO = new AirportDAO(conn);
+			RouteDAO   rDAO = new RouteDAO(conn);
+			List<Airport> airports = new ArrayList<>();
+			Airport a = new Airport();
+			
+			airports = aDAO.readAllAirports(a);
+			
+			for (Airport o : airports) {
+				System.out.println(o.getCity());
+			}
+
 			
 			
-			//conn.commit();
-			return "Flight added successfully";
+			
+			
+			
+			conn.commit();
+			return "Flight read successfully";
 		}
 		catch (Exception e) {
 			e.printStackTrace();

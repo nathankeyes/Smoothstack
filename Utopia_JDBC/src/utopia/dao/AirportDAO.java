@@ -22,11 +22,10 @@ public class AirportDAO extends BaseDAO<Airport>{
 		super(conn);
 	}
 
-
+	// ------------------------- functions for table  -------------------------
 	public void addAirport(Airport airport) throws ClassNotFoundException, SQLException {
 		save("INSERT INTO airport VALUES (?,?)", new Object[] {airport.getAirportCode(), airport.getCity()});
 	}
-	
 	
 	public void updateAirport(Airport airport) throws ClassNotFoundException, SQLException {
 		save("UPDATE airport SET city = ? WHERE iata_id = ?", new Object[] {airport.getCity(), airport.getAirportCode()});
@@ -44,13 +43,19 @@ public class AirportDAO extends BaseDAO<Airport>{
 		return read("SELECT * FROM airport WHERE iata_id = ", new Object[] {airport.getAirportCode()});
 	}
 	
+	
+	
+	
+	
 	public List<Airport> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
 		List<Airport> airports = new ArrayList<>();
 		
 		while (rs.next()) {
 			Airport a = new Airport();
 			a.setAirportCode(rs.getString("iata_id"));
+			//System.out.println(rs.getString("iata_id"));
 			a.setCity(rs.getString("city"));
+			//System.out.println(rs.getString("city"));
 			
 			airports.add(a);
 		}

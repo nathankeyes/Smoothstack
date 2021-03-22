@@ -41,6 +41,8 @@ public class Driver {
 		
 		response = es.flightInfo(userRoute);
 		
+		System.out.println("1) Press 1 to return to last menu");
+		
 		
 		int userInput = readInput();
 		

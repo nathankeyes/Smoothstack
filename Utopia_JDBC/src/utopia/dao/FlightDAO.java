@@ -63,11 +63,12 @@ public class FlightDAO extends BaseDAO<Flight>{
 	public List<Flight> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
 		List<Flight> flights = new ArrayList<>();
 		
-		Flight   f = new Flight();
-		Airplane a = new Airplane();
-		Route    r = new Route();
 		
-		while(rs.next()) {
+		while(rs.next()) {	
+			Flight   f = new Flight();
+			Airplane a = new Airplane();
+			Route    r = new Route();
+			
 			f.setFlightID(rs.getInt("id"));
 			f.setFlightDepartureTime(rs.getTimestamp("departure_time"));									// DATETIME ???????
 			f.setFlightReservedSeats(rs.getInt("reserved_seats"));
@@ -78,13 +79,12 @@ public class FlightDAO extends BaseDAO<Flight>{
 			
 			a.setAirplaneID(rs.getInt("airplane_id"));
 			f.setFlightAirplaneID(a);
-		
 			
 			flights.add(f);	
 		}
 		
-		a.setAirplaneFlights(flights);				// not sure if i need this, but whatevs
-		r.setRouteFlights(flights);					// not sure if i need this, but whatevs
+		//a.setAirplaneFlights(flights);				// not sure if i need this, but whatevs
+		//r.setRouteFlights(flights);					// not sure if i need this, but whatevs
 		return flights;
 	}
 

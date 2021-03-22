@@ -33,6 +33,29 @@ public class Driver {
 		return;
 	}
 	
+	public void employeeOption2(int userRoute) throws ClassNotFoundException, SQLException {
+		Driver drive = new Driver();
+		EmployeeService es = new EmployeeService();
+		
+		String response = null;
+		
+		response = es.updateFlight(userRoute);
+		
+		System.out.println("1) Press 1 to return to last menu");
+		
+		
+		String userInput = readQuit();
+		
+		if (userInput == "quit" || userInput == "Quit") {							// return
+			drive.employeeFunc3(userRoute);											
+		}
+		else {
+			System.out.println("Incorrect Input, Try Again");
+			drive.employeeOption2(userRoute);
+		}
+		
+	}
+	
 	public void employeeOption1(int userRoute) throws ClassNotFoundException, SQLException {
 		Driver drive = new Driver();
 		EmployeeService es = new EmployeeService();
@@ -68,7 +91,7 @@ public class Driver {
 			drive.employeeOption1(userRoute);											
 		}
 		else if (userInput == 2) {						// update details
-			//drive.employee											
+			//drive.employeeOption2(userRoute);											
 		}
 		
 		else if (userInput == 3) {						// add seats to flight
@@ -154,6 +177,10 @@ public class Driver {
 		}
 		
 		return;
+	}
+	
+	public String readQuit() {			
+		return scan.nextLine();
 	}
 	
 	public int readInput() {			

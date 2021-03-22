@@ -3,7 +3,7 @@ package utopia.jdbc;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-
+import utopia.entity.Airport;
 import utopia.service.AdminService;
 import utopia.service.EmployeeService;
 
@@ -16,6 +16,8 @@ import utopia.service.EmployeeService;
  */
 
 public class Driver {
+	
+	static Scanner scan = new Scanner(System.in);
 	
 	public void travelerFunc1() {
 		
@@ -31,26 +33,47 @@ public class Driver {
 		return;
 	}
 	
+	public void employeeFunc3(int userRoute) throws SQLException, ClassNotFoundException {
+		Driver drive = new Driver();
+		
+		System.out.println("1) View more details about the flight\n" + "2) Update the details of the Flight\n" + "3) Add Seats to Flight\n" + "4) Quite to previous");
+		
+		int userInput = readInput();
+		
+		if (userInput == 1) {
+														// more details
+		}
+		else if (userInput == 2) {
+														// update details
+		}
+		
+		else if (userInput == 3) {
+														// add seats to flight
+		}
+		else if (userInput == 4) {
+			drive.employeeFunc2();						// go back
+		}
+		else {
+			System.out.println("Incorrect Input, Try Again");
+			drive.employeeFunc3(userRoute);
+		}
+	}
+	
 	public void employeeFunc2() throws SQLException, ClassNotFoundException {
 		Driver drive = new Driver();
 		
-
 		// Menu two operation ----------------------------------------
 		EmployeeService es = new EmployeeService();
-		String result = null;
 		
-		result = es.viewFlights();
+		int count = es.viewFlights();
 
-
-
-		// -----------------------------------------------------------
 		int userInput = readInput();
-
-		// won't be 1, will be a count variable for how many flights there are, count+1 is option for going back
-		if (userInput == 1) {			//
-			drive.employeeFunc2();
+	
+		
+		if (userInput < count) {			// got to emp 3
+			drive.employeeFunc3(userInput);
 		}
-		else if (userInput == 2) {		// 
+		else if (userInput == count) {		// go back to emp1
 			drive.employeeFunc1();
 		}
 		else {
@@ -109,10 +132,8 @@ public class Driver {
 		return;
 	}
 	
-	public int readInput() {	
-		try (Scanner scan = new Scanner(System.in)) {
-			return scan.nextInt();
-		}
+	public int readInput() {			
+		return scan.nextInt();
 	}
 
 	public static void main(String[] args) throws SQLException, ClassNotFoundException {
@@ -120,6 +141,8 @@ public class Driver {
 		Driver drive = new Driver();
 		
 		drive.entryPoint();
+		
+		scan.close();
 		
 //		AdminService as = new AdminService();
 //		String result = null;

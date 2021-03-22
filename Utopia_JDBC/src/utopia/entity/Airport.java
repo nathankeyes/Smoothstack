@@ -41,6 +41,12 @@ public class Airport {
 	public void setRoutes(List<Route> routes) {
 		this.routes = routes;
 	}
+	
+	
+	// test
+	public void addRoute(Route route) {
+		this.routes.add(route);
+	}
 
 	// -------------------- HashCode on Primary Key --------------------
 	@Override

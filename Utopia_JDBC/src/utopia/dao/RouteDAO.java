@@ -43,28 +43,38 @@ public class RouteDAO extends BaseDAO<Route>{
 		return read("SELECT * FROM route WHERE id = ", new Object[] {route.getRouteID()});
 	}
 	
+	public List<Route> test() throws ClassNotFoundException, SQLException {
+		return read("SELECT id, origin_id, destination_id, a1.city AS org_city, a2.city AS dest_city "
+				+ "FROM route LEFT JOIN airport a1 on origin_id = a1.iata_id LEFT JOIN airport a2 ON destination_id = a2.iata_id", null);
+	}
+	
 	
 
 	@Override
 	public List<Route> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
 		List<Route> routes = new ArrayList<>();
-		Route r = new Route();
-		Airport a = new Airport();
 		
 		while (rs.next()) {
+			Route   r = new Route();
 			r.setRouteID(rs.getInt("id"));
-			
-			a.setAirportCode(rs.getString("origin_id"));
-			r.setOriginAirport(a);
-			
-			a.setAirportCode(rs.getString("destination_id"));
-			r.setDestAirport(a);
 		
+			Airport a1 = new Airport();
+			Airport a2 = new Airport();
+			
+			a1.setAirportCode(rs.getString("origin_id"));
+			a1.setCity(rs.getString("org_city"));
+			r.setOriginAirport(a1);
+			//System.out.print(rs.getString("origin_id") + "     ");
+			
+			a2.setAirportCode(rs.getString("destination_id"));
+			a2.setCity(rs.getString("dest_city"));
+			r.setDestAirport(a2);
+			//System.out.println(rs.getString("destination_id"));
 			
 			routes.add(r);
 		}
 		
-		a.setRoutes(routes);				// not sure if i need this, but whatevs
+		//a.setRoutes(routes);				// not sure if i need this, but whatevs
 		return routes;
 	}
 

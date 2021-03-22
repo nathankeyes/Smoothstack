@@ -33,22 +33,44 @@ public class Driver {
 		return;
 	}
 	
+	public void employeeOption1(int userRoute) throws ClassNotFoundException, SQLException {
+		Driver drive = new Driver();
+		EmployeeService es = new EmployeeService();
+		
+		String response = null;
+		
+		response = es.flightInfo(userRoute);
+		
+		
+		int userInput = readInput();
+		
+		if (userInput == 1) {							// return
+			drive.employeeFunc3(userRoute);											
+		}
+		else {
+			System.out.println("Incorrect Input, Try Again");
+			drive.employeeOption1(userRoute);
+		}
+		
+	}
+	
 	public void employeeFunc3(int userRoute) throws SQLException, ClassNotFoundException {
 		Driver drive = new Driver();
+		EmployeeService es = new EmployeeService();
 		
 		System.out.println("1) View more details about the flight\n" + "2) Update the details of the Flight\n" + "3) Add Seats to Flight\n" + "4) Quite to previous");
 		
 		int userInput = readInput();
 		
-		if (userInput == 1) {
-														// more details
+		if (userInput == 1) {							// more details
+			drive.employeeOption1(userRoute);											
 		}
-		else if (userInput == 2) {
-														// update details
+		else if (userInput == 2) {						// update details
+			//drive.employee											
 		}
 		
-		else if (userInput == 3) {
-														// add seats to flight
+		else if (userInput == 3) {						// add seats to flight
+														
 		}
 		else if (userInput == 4) {
 			drive.employeeFunc2();						// go back

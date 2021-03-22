@@ -31,6 +31,7 @@ public class ReadAirport {
 		// Prepared Statement
 		PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM airport WHERE iata_id = ?");
 		
+		
 		// User Input
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter Airport Code to search");

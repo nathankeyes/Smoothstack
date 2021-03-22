@@ -53,6 +53,7 @@ public class RouteDAO extends BaseDAO<Route>{
 	@Override
 	public List<Route> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
 		List<Route> routes = new ArrayList<>();
+		//Airport a2 = new Airport();
 		
 		while (rs.next()) {
 			Route   r = new Route();
@@ -62,20 +63,47 @@ public class RouteDAO extends BaseDAO<Route>{
 			Airport a2 = new Airport();
 			
 			a1.setAirportCode(rs.getString("origin_id"));
-			a1.setCity(rs.getString("org_city"));
 			r.setOriginAirport(a1);
 			//System.out.print(rs.getString("origin_id") + "     ");
 			
 			a2.setAirportCode(rs.getString("destination_id"));
-			a2.setCity(rs.getString("dest_city"));
 			r.setDestAirport(a2);
 			//System.out.println(rs.getString("destination_id"));
-			
+		
 			routes.add(r);
 		}
 		
-		//a.setRoutes(routes);				// not sure if i need this, but whatevs
+		//a2.setRoutes(routes);				// not working
+		
 		return routes;
 	}
+	
+//	@Override
+//	public List<Route> extractData(ResultSet rs) throws ClassNotFoundException, SQLException {
+//		List<Route> routes = new ArrayList<>();
+//		
+//		while (rs.next()) {
+//			Route   r = new Route();
+//			r.setRouteID(rs.getInt("id"));
+//		
+//			Airport a1 = new Airport();
+//			Airport a2 = new Airport();
+//			
+//			a1.setAirportCode(rs.getString("origin_id"));
+//			a1.setCity(rs.getString("org_city"));
+//			r.setOriginAirport(a1);
+//			//System.out.print(rs.getString("origin_id") + "     ");
+//			
+//			a2.setAirportCode(rs.getString("destination_id"));
+//			a2.setCity(rs.getString("dest_city"));
+//			r.setDestAirport(a2);
+//			//System.out.println(rs.getString("destination_id"));
+//			
+//			routes.add(r);
+//		}
+//		
+//		//a.setRoutes(routes);				// not sure if i need this, but whatevs
+//		return routes;
+//	}
 
 }

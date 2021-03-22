@@ -62,7 +62,6 @@ public abstract class BaseDAO<T> {
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		int count = 1;
 		
-		
 		if ( vals != null ) {
 			for (Object o : vals) {
 				pstmt.setObject(count, o);
